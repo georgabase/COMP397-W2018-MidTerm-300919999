@@ -8,6 +8,9 @@ namespace objects {
     constructor() {
       super("coin");
       if (managers.Game.currentScene == config.Scene.LEVEL2) this.rotation = 90;
+      if (managers.Game.currentScene == config.Scene.LEVEL3)
+        this.rotation = -90;
+
       this.Start();
     }
 
@@ -23,6 +26,9 @@ namespace objects {
     public CheckBounds(): void {
       if (managers.Game.currentScene == config.Scene.LEVEL2) {
         if (this.x <= 0) this.alpha = 1;
+      }
+      if (managers.Game.currentScene == config.Scene.LEVEL3) {
+        if (this.x >= 640) this.alpha = 1;
       } else {
         if (this.y >= 480 + this.height) this.alpha = 1;
       }

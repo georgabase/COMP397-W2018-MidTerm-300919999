@@ -10,6 +10,8 @@ namespace objects {
       super("plane");
       this.Start();
       if (managers.Game.currentScene == config.Scene.LEVEL2) this.rotation = 90;
+      if (managers.Game.currentScene == config.Scene.LEVEL3)
+        this.rotation = -90;
     }
 
     // private methods
@@ -34,6 +36,10 @@ namespace objects {
 
       if (managers.Game.currentScene == config.Scene.LEVEL2) {
         this.x = 0;
+        this.y = 320;
+      }
+      if (managers.Game.currentScene == config.Scene.LEVEL3) {
+        this.x = 640;
         this.y = 320;
       } else {
         this.x = 320;

@@ -19,6 +19,8 @@ var objects;
             var _this = _super.call(this, "island") || this;
             if (managers.Game.currentScene == config.Scene.LEVEL2)
                 _this.rotation = 90;
+            if (managers.Game.currentScene == config.Scene.LEVEL3)
+                _this.rotation = -90;
             _this.Start();
             return _this;
         }
@@ -28,6 +30,8 @@ var objects;
         Island.prototype.Start = function () {
             if (managers.Game.currentScene == config.Scene.LEVEL2)
                 this._dx = -5;
+            if (managers.Game.currentScene == config.Scene.LEVEL3)
+                this._dx = 5;
             else
                 this._dy = 5;
             this.Reset();
@@ -43,6 +47,10 @@ var objects;
                 this.x = this.width + 640 + this.halfWidth;
                 this.y = Math.floor(Math.random() * (480 - this.height) + this.halfHeight);
             }
+            if (managers.Game.currentScene == config.Scene.LEVEL3) {
+                this.x = -this.width - 640 - this.halfWidth;
+                this.y = Math.floor(Math.random() * (480 - this.height) + this.halfHeight);
+            }
             else {
                 this.x = Math.floor(Math.random() * (640 - this.width) + this.halfWidth);
                 this.y = -this.height;
@@ -52,6 +60,8 @@ var objects;
         Island.prototype.Move = function () {
             if (managers.Game.currentScene == config.Scene.LEVEL2)
                 this.x += this._dx;
+            if (managers.Game.currentScene == config.Scene.LEVEL3)
+                this.x += this._dx;
             else
                 this.y += this._dy;
         };
@@ -60,6 +70,11 @@ var objects;
             // check lower bounds
             if (managers.Game.currentScene == config.Scene.LEVEL2) {
                 if (this.x <= 0 - this.halfWidth) {
+                    this.Reset();
+                }
+            }
+            if (managers.Game.currentScene == config.Scene.LEVEL3) {
+                if (this.x >= 640 + this.halfWidth) {
                     this.Reset();
                 }
             }

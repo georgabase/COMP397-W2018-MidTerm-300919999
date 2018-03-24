@@ -18,6 +18,8 @@ var objects;
             var _this = _super.call(this, managers.Game.assetManager.getResult("ocean")) || this;
             if (managers.Game.currentScene == config.Scene.LEVEL2)
                 _this.rotation = 90;
+            if (managers.Game.currentScene == config.Scene.LEVEL3)
+                _this.rotation = -90;
             _this.Start();
             return _this;
         }
@@ -26,6 +28,8 @@ var objects;
         Ocean.prototype._reset = function () {
             if (managers.Game.currentScene == config.Scene.LEVEL2)
                 this.x = 1440;
+            if (managers.Game.currentScene == config.Scene.LEVEL3)
+                this.x = -1440;
             else
                 this.y = -960;
         };
@@ -33,6 +37,8 @@ var objects;
         Ocean.prototype._move = function () {
             if (managers.Game.currentScene == config.Scene.LEVEL2)
                 this.x -= this._dy;
+            if (managers.Game.currentScene == config.Scene.LEVEL3)
+                this.x += this._dy;
             else
                 this.y += this._dy;
         };
@@ -40,6 +46,11 @@ var objects;
         Ocean.prototype._checkBounds = function () {
             if (managers.Game.currentScene == config.Scene.LEVEL2) {
                 if (this.x <= 640) {
+                    this._reset();
+                }
+            }
+            if (managers.Game.currentScene == config.Scene.LEVEL3) {
+                if (this.x >= 640) {
                     this._reset();
                 }
             }

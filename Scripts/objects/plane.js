@@ -18,6 +18,8 @@ var objects;
             _this.Start();
             if (managers.Game.currentScene == config.Scene.LEVEL2)
                 _this.rotation = 90;
+            if (managers.Game.currentScene == config.Scene.LEVEL3)
+                _this.rotation = -90;
             return _this;
         }
         // private methods
@@ -35,6 +37,10 @@ var objects;
             this.planeFlash.on("animationend", this._animationEnded.bind(this), false);
             if (managers.Game.currentScene == config.Scene.LEVEL2) {
                 this.x = 0;
+                this.y = 320;
+            }
+            if (managers.Game.currentScene == config.Scene.LEVEL3) {
+                this.x = 640;
                 this.y = 320;
             }
             else {

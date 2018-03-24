@@ -19,6 +19,8 @@ var objects;
             var _this = _super.call(this, "coin") || this;
             if (managers.Game.currentScene == config.Scene.LEVEL2)
                 _this.rotation = 90;
+            if (managers.Game.currentScene == config.Scene.LEVEL3)
+                _this.rotation = -90;
             _this.Start();
             return _this;
         }
@@ -31,6 +33,10 @@ var objects;
         Coin.prototype.CheckBounds = function () {
             if (managers.Game.currentScene == config.Scene.LEVEL2) {
                 if (this.x <= 0)
+                    this.alpha = 1;
+            }
+            if (managers.Game.currentScene == config.Scene.LEVEL3) {
+                if (this.x >= 640)
                     this.alpha = 1;
             }
             else {

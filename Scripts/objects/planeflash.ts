@@ -8,6 +8,8 @@ namespace objects {
     constructor() {
       super("planeflash");
       if (managers.Game.currentScene == config.Scene.LEVEL2) this.rotation = 90;
+      if (managers.Game.currentScene == config.Scene.LEVEL3)
+        this.rotation = -90;
     }
 
     // private methods

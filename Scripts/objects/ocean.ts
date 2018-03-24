@@ -9,6 +9,9 @@ namespace objects {
     constructor() {
       super(managers.Game.assetManager.getResult("ocean"));
       if (managers.Game.currentScene == config.Scene.LEVEL2) this.rotation = 90;
+      if (managers.Game.currentScene == config.Scene.LEVEL3)
+        this.rotation = -90;
+
       this.Start();
     }
 
@@ -17,12 +20,14 @@ namespace objects {
     // reset the objects location to some value
     private _reset(): void {
       if (managers.Game.currentScene == config.Scene.LEVEL2) this.x = 1440;
+      if (managers.Game.currentScene == config.Scene.LEVEL3) this.x = -1440;
       else this.y = -960;
     }
 
     // move the object to some new location
     private _move(): void {
       if (managers.Game.currentScene == config.Scene.LEVEL2) this.x -= this._dy;
+      if (managers.Game.currentScene == config.Scene.LEVEL3) this.x += this._dy;
       else this.y += this._dy;
     }
 
@@ -30,6 +35,11 @@ namespace objects {
     private _checkBounds(): void {
       if (managers.Game.currentScene == config.Scene.LEVEL2) {
         if (this.x <= 640) {
+          this._reset();
+        }
+      }
+      if (managers.Game.currentScene == config.Scene.LEVEL3) {
+        if (this.x >= 640) {
           this._reset();
         }
       } else {

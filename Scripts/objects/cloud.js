@@ -19,6 +19,8 @@ var objects;
             var _this = _super.call(this, "cloud") || this;
             if (managers.Game.currentScene == config.Scene.LEVEL2)
                 _this.rotation = 90;
+            if (managers.Game.currentScene == config.Scene.LEVEL3)
+                _this.rotation = -90;
             _this.Start();
             return _this;
         }
@@ -41,6 +43,12 @@ var objects;
                 this._dy = Math.floor(Math.random() * 4 - 2);
                 this._dx = Math.floor(Math.random() * 5 + 5);
             }
+            if (managers.Game.currentScene == config.Scene.LEVEL3) {
+                this.x = -this.width - 640;
+                this.y = Math.floor(Math.random() * (480 - this.height) + this.halfHeight);
+                this._dy = Math.floor(Math.random() * 4 - 2);
+                this._dx = Math.floor(Math.random() * 5 + 5);
+            }
             else {
                 this.x = Math.floor(Math.random() * (640 - this.width) + this.halfWidth);
                 this.y = -this.height;
@@ -54,6 +62,10 @@ var objects;
                 this.x -= this._dx;
                 this.y += this._dy;
             }
+            if (managers.Game.currentScene == config.Scene.LEVEL3) {
+                this.x += this._dx;
+                this.y += this._dy;
+            }
             else {
                 this.y += this._dy;
                 this.x += this._dx;
@@ -63,6 +75,10 @@ var objects;
         Cloud.prototype.CheckBounds = function () {
             if (managers.Game.currentScene == config.Scene.LEVEL2) {
                 if (this.x <= 0)
+                    this.Reset();
+            }
+            if (managers.Game.currentScene == config.Scene.LEVEL3) {
+                if (this.x >= 640)
                     this.Reset();
             }
             else {

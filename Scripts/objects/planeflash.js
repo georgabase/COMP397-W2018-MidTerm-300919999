@@ -19,6 +19,8 @@ var objects;
             var _this = _super.call(this, "planeflash") || this;
             if (managers.Game.currentScene == config.Scene.LEVEL2)
                 _this.rotation = 90;
+            if (managers.Game.currentScene == config.Scene.LEVEL3)
+                _this.rotation = -90;
             return _this;
         }
         // private methods
