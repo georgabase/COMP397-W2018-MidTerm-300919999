@@ -22,9 +22,9 @@ namespace objects {
 
     public CheckBounds(): void {
       if (managers.Game.currentScene == config.Scene.LEVEL2) {
-        if (this.x < 0 - this.height) this.alpha = 1;
+        if (this.x <= 0) this.alpha = 1;
       } else {
-        if (this.y > 480 + this.height) this.alpha = 1;
+        if (this.y >= 480 + this.height) this.alpha = 1;
       }
     }
   }

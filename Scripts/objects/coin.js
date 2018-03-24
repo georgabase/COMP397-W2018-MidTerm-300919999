@@ -30,11 +30,11 @@ var objects;
         };
         Coin.prototype.CheckBounds = function () {
             if (managers.Game.currentScene == config.Scene.LEVEL2) {
-                if (this.x < 0 - this.height)
+                if (this.x <= 0)
                     this.alpha = 1;
             }
             else {
-                if (this.y > 480 + this.height)
+                if (this.y >= 480 + this.height)
                     this.alpha = 1;
             }
         };

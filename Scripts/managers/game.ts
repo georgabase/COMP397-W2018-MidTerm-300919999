@@ -1,4 +1,4 @@
-module managers {
+namespace managers {
   export class Game {
     public static stage: createjs.Stage;
     public static assetManager: createjs.LoadQueue;

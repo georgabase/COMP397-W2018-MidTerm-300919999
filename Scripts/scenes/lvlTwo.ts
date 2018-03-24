@@ -40,7 +40,6 @@ namespace scenes {
 
       // create the scoreboard UI for the Scene
       this._scoreBoard = managers.Game.scoreBoard;
-      //managers.Game.scoreBoard = this._scoreBoard;
 
       this.Main();
     }
