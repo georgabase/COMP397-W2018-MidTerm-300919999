@@ -54,28 +54,18 @@ var objects;
             // mouse controls
             // this.x = objects.Game.stage.mouseX;
             // keyboard controls
-            if (managers.Game.keyboardManager.moveLeft) {
-                if (managers.Game.currentScene == config.Scene.LEVEL2) {
-                    this.y -= 5;
-                }
-                else
-                    this.x -= 5;
-            }
-            if (managers.Game.keyboardManager.moveRight) {
-                if (managers.Game.currentScene == config.Scene.LEVEL2) {
-                    this.y += 5;
-                }
-                else
-                    this.x += 5;
-            }
-            if (managers.Game.keyboardManager.moveForward) {
-                if (managers.Game.currentScene == 2)
-                    this.y -= 5;
-            }
-            if (managers.Game.keyboardManager.moveBackward) {
-                if (managers.Game.currentScene == 2)
-                    this.y += 5;
-            }
+            if (managers.Game.keyboardManager.moveLeft &&
+                managers.Game.currentScene == config.Scene.PLAY)
+                this.x -= 5;
+            if (managers.Game.keyboardManager.moveRight &&
+                managers.Game.currentScene == config.Scene.PLAY)
+                this.x += 5;
+            if (managers.Game.keyboardManager.moveForward &&
+                managers.Game.currentScene == config.Scene.LEVEL2)
+                this.y -= 5;
+            if (managers.Game.keyboardManager.moveBackward &&
+                managers.Game.currentScene == config.Scene.LEVEL2)
+                this.y += 5;
             this.planeFlash.x = this.x;
             this.planeFlash.y = this.y;
         };
@@ -88,6 +78,14 @@ var objects;
             // left boundary
             if (this.x <= this.halfWidth) {
                 this.x = this.halfWidth;
+            }
+            // up boundary
+            if (this.y >= 480 - this.halfHeight) {
+                this.y = 480 - this.halfHeight;
+            }
+            // low boundary
+            if (this.y <= this.halfHeight) {
+                this.y = this.halfHeight;
             }
         };
         return Plane;
