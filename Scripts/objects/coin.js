@@ -17,19 +17,25 @@ var objects;
         // constructors
         function Coin() {
             var _this = _super.call(this, "coin") || this;
+            if (managers.Game.currentScene == config.Scene.LEVEL2)
+                _this.rotation = 90;
             _this.Start();
             return _this;
         }
         // private methods
         // public methods
-        Coin.prototype.Start = function () {
-        };
+        Coin.prototype.Start = function () { };
         Coin.prototype.Update = function () {
             this.CheckBounds();
         };
         Coin.prototype.CheckBounds = function () {
-            if (this.y > (480 + this.height)) {
-                this.alpha = 1;
+            if (managers.Game.currentScene == config.Scene.LEVEL2) {
+                if (this.x < 0 - this.height)
+                    this.alpha = 1;
+            }
+            else {
+                if (this.y > 480 + this.height)
+                    this.alpha = 1;
             }
         };
         return Coin;

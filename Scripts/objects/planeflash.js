@@ -16,14 +16,15 @@ var objects;
         // public properties
         // constructors
         function PlaneFlash() {
-            return _super.call(this, "planeflash") || this;
+            var _this = _super.call(this, "planeflash") || this;
+            if (managers.Game.currentScene == config.Scene.LEVEL2)
+                _this.rotation = 90;
+            return _this;
         }
         // private methods
         // public methods
-        PlaneFlash.prototype.Start = function () {
-        };
-        PlaneFlash.prototype.Update = function () {
-        };
+        PlaneFlash.prototype.Start = function () { };
+        PlaneFlash.prototype.Update = function () { };
         return PlaneFlash;
     }(objects.GameObject));
     objects.PlaneFlash = PlaneFlash;

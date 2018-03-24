@@ -1,4 +1,4 @@
-module objects {
+namespace objects {
   export class PlaneFlash extends objects.GameObject {
     // private instance variables
 
@@ -7,17 +7,14 @@ module objects {
     // constructors
     constructor() {
       super("planeflash");
+      if (managers.Game.currentScene == config.Scene.LEVEL2) this.rotation = 90;
     }
 
     // private methods
 
     // public methods
-    public Start(): void {
+    public Start(): void {}
 
-    }
-
-    public Update(): void {
-
-    }
+    public Update(): void {}
   }
 }

@@ -17,6 +17,8 @@ var objects;
         // Constructor
         function Cloud() {
             var _this = _super.call(this, "cloud") || this;
+            if (managers.Game.currentScene == config.Scene.LEVEL2)
+                _this.rotation = 90;
             _this.Start();
             return _this;
         }
@@ -33,10 +35,10 @@ var objects;
         };
         // reset the objects location to some value
         Cloud.prototype.Reset = function () {
-            this.x = Math.floor((Math.random() * (640 - this.width)) + this.halfWidth);
+            this.x = Math.floor(Math.random() * (640 - this.width) + this.halfWidth);
             this.y = -this.height;
-            this._dx = Math.floor((Math.random() * 4) - 2);
-            this._dy = Math.floor((Math.random() * 5) + 5);
+            this._dx = Math.floor(Math.random() * 4 - 2);
+            this._dy = Math.floor(Math.random() * 5 + 5);
         };
         // move the object to some new location
         Cloud.prototype.Move = function () {
