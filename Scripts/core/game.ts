@@ -133,8 +133,8 @@
       case config.Scene.START:
         currentScene = new scenes.StartScene();
         break;
-      case config.Scene.LVLTWO:
-        currentScene = new scenes.lvlTwo();
+      case config.Scene.LEVEL2:
+        currentScene = new scenes.Level2();
         break;
       case config.Scene.PLAY:
         currentScene = new scenes.PlayScene();

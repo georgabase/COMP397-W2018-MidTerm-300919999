@@ -83,7 +83,7 @@ namespace scenes {
 
       if (managers.Game.scoreBoard.Score >= 100) {
         this._engineSound.stop();
-        managers.Game.currentScene = config.Scene.LVLTWO;
+        managers.Game.currentScene = config.Scene.LEVEL2;
       }
     }
 

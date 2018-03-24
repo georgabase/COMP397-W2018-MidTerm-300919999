@@ -10,19 +10,15 @@ var __extends = (this && this.__extends) || (function () {
 })();
 var scenes;
 (function (scenes) {
-    var lvlTwo = /** @class */ (function (_super) {
-        __extends(lvlTwo, _super);
-        // Public Properties
-        // Constructor
-        function lvlTwo() {
+    var Level2 = /** @class */ (function (_super) {
+        __extends(Level2, _super);
+        function Level2() {
             var _this = _super.call(this) || this;
             _this.Start();
             return _this;
         }
-        // Private Mathods
-        // Public Methods
         // Initialize Game Variables and objects
-        lvlTwo.prototype.Start = function () {
+        Level2.prototype.Start = function () {
             this._ocean = new objects.Ocean();
             this._plane = new objects.Plane();
             managers.Game.plane = this._plane;
@@ -31,7 +27,6 @@ var scenes;
             // instantiate the cloud array
             this._clouds = new Array();
             this._cloudNum = 2;
-            // can delete foreach but too lazy
             // loop and add each cloud to the array
             for (var count = 0; count < this._cloudNum; count++) {
                 this._clouds[count] = new objects.Cloud();
@@ -40,12 +35,12 @@ var scenes;
             this._engineSound.loop = -1; // play forever
             this._engineSound.volume = 0.3;
             // create the scoreboard UI for the Scene
-            this._scoreBoard = new managers.ScoreBoard();
             this._scoreBoard = managers.Game.scoreBoard;
+            //managers.Game.scoreBoard = this._scoreBoard;
             this.Main();
         };
         // triggered every frame
-        lvlTwo.prototype.Update = function () {
+        Level2.prototype.Update = function () {
             var _this = this;
             this._ocean.Update();
             this._plane.Update();
@@ -67,7 +62,7 @@ var scenes;
             }
         };
         // This is where the fun happens
-        lvlTwo.prototype.Main = function () {
+        Level2.prototype.Main = function () {
             var _this = this;
             // add the ocean to the scene
             this.addChild(this._ocean);
@@ -86,8 +81,8 @@ var scenes;
             this.addChild(this._scoreBoard.LivesLabel);
             this.addChild(this._scoreBoard.ScoreLabel);
         };
-        return lvlTwo;
+        return Level2;
     }(objects.Scene));
-    scenes.lvlTwo = lvlTwo;
+    scenes.Level2 = Level2;
 })(scenes || (scenes = {}));
 //# sourceMappingURL=lvlTwo.js.map

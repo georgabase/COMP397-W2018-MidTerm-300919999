@@ -1,5 +1,5 @@
 namespace scenes {
-  export class lvlTwo extends objects.Scene {
+  export class Level2 extends objects.Scene {
     // Private Instance Variables
     private _ocean: objects.Ocean;
     private _plane: objects.Plane;
@@ -11,18 +11,11 @@ namespace scenes {
     private _engineSound: createjs.AbstractSoundInstance;
     private _coin: objects.Coin;
 
-    // Public Properties
-
-    // Constructor
     constructor() {
       super();
 
       this.Start();
     }
-
-    // Private Mathods
-
-    // Public Methods
 
     // Initialize Game Variables and objects
     public Start(): void {
@@ -36,9 +29,6 @@ namespace scenes {
       // instantiate the cloud array
       this._clouds = new Array<objects.Cloud>();
       this._cloudNum = 2;
-
-      // can delete foreach but too lazy
-
       // loop and add each cloud to the array
       for (let count = 0; count < this._cloudNum; count++) {
         this._clouds[count] = new objects.Cloud();
@@ -49,12 +39,11 @@ namespace scenes {
       this._engineSound.volume = 0.3;
 
       // create the scoreboard UI for the Scene
-      this._scoreBoard = new managers.ScoreBoard();
       this._scoreBoard = managers.Game.scoreBoard;
+      //managers.Game.scoreBoard = this._scoreBoard;
 
       this.Main();
     }
-
     // triggered every frame
     public Update(): void {
       this._ocean.Update();
