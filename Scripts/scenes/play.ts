@@ -36,6 +36,9 @@ namespace scenes {
       // instantiate the cloud array
       this._clouds = new Array<objects.Cloud>();
       this._cloudNum = 1;
+
+      // can delete foreach but too lazy
+
       // loop and add each cloud to the array
       for (let count = 0; count < this._cloudNum; count++) {
         this._clouds[count] = new objects.Cloud();
