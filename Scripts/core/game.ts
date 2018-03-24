@@ -1,8 +1,7 @@
 /// <reference path="_references.ts"/>
 
 // IIFE - Immediately Invoked Function Expression
-(function () {
-
+(function() {
   // Game Variables
   let canvas = document.getElementById("canvas");
   let stage: createjs.Stage;
@@ -17,13 +16,12 @@
   let textureAtlas: createjs.SpriteSheet;
 
   textureAtlasData = {
-
-    "images": [
-      ""
+    images: [
+      "",
       //"./Assets/sprites/textureAtlas.png"
     ],
 
-    "frames": [
+    frames: [
       [2, 2, 226, 178, 0, 0, 0],
       [230, 2, 44, 40, 0, 0, 0],
       [276, 2, 44, 40, 0, 0, 0],
@@ -49,32 +47,31 @@
       [2, 316, 65, 65, 0, 0, 0],
       [69, 316, 65, 65, 0, 0, 0],
       [136, 316, 200, 60, 0, 0, 0],
-      [2, 383, 200, 60, 0, 0, 0]
-  ],
+      [2, 383, 200, 60, 0, 0, 0],
+    ],
 
-    "animations": {
-      "cloud": { "frames": [0] },
-      "coin": {
-        "frames": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
-        "speed": 0.33
+    animations: {
+      cloud: { frames: [0] },
+      coin: {
+        frames: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+        speed: 0.33,
       },
-      "explosion": {
-        "frames": [11, 12, 13, 14, 15, 16, 17],
-        "speed": 0.16
+      explosion: {
+        frames: [11, 12, 13, 14, 15, 16, 17],
+        speed: 0.16,
       },
-      "island": { "frames": [18] },
-      "plane": {
-        "frames": [19, 20, 21],
-        "speed": 0.5
+      island: { frames: [18] },
+      plane: {
+        frames: [19, 20, 21],
+        speed: 0.5,
       },
-      "planeflash": {
-        "frames": [22, 23, 22, 23, 22, 23],
-        "speed": 0.08
+      planeflash: {
+        frames: [22, 23, 22, 23, 22, 23],
+        speed: 0.08,
       },
-      "restartButton": { "frames": [24] },
-      "startButton": { "frames": [25] }
-    }
-
+      restartButton: { frames: [24] },
+      startButton: { frames: [25] },
+    },
   };
 
   assetManifest = [
@@ -83,7 +80,7 @@
     { id: "engine", src: "./Assets/audio/engine.ogg" },
     { id: "coin", src: "./Assets/audio/coin.wav" },
     { id: "life", src: "./Assets/audio/life.wav" },
-    { id: "explosion", src: "./Assets/audio/explosion.mp3" }
+    { id: "explosion", src: "./Assets/audio/explosion.mp3" },
   ];
 
   // preloads assets
@@ -96,7 +93,7 @@
   }
 
   function Start(): void {
-    console.log("Starting Application...")
+    console.log("Starting Application...");
     textureAtlasData.images = [assetManager.getResult("textureAtlas")];
     textureAtlas = new createjs.SpriteSheet(textureAtlasData);
 
@@ -136,6 +133,9 @@
       case config.Scene.START:
         currentScene = new scenes.StartScene();
         break;
+      case config.Scene.LVLTWO:
+        currentScene = new scenes.lvlTwo();
+        break;
       case config.Scene.PLAY:
         currentScene = new scenes.PlayScene();
         break;
@@ -150,5 +150,4 @@
   }
 
   window.onload = Init;
-
 })();

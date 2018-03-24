@@ -1,5 +1,5 @@
 namespace scenes {
-  export class PlayScene extends objects.Scene {
+  export class lvlTwo extends objects.Scene {
     // Private Instance Variables
     private _ocean: objects.Ocean;
     private _plane: objects.Plane;
@@ -35,7 +35,7 @@ namespace scenes {
 
       // instantiate the cloud array
       this._clouds = new Array<objects.Cloud>();
-      this._cloudNum = 1;
+      this._cloudNum = 2;
 
       // can delete foreach but too lazy
 
@@ -79,11 +79,6 @@ namespace scenes {
       if (this._scoreBoard.Lives <= 0) {
         this._engineSound.stop();
         managers.Game.currentScene = config.Scene.OVER;
-      }
-
-      if (managers.Game.scoreBoard.Score >= 500) {
-        this._engineSound.stop();
-        managers.Game.currentScene = config.Scene.LVLTWO;
       }
     }
 
