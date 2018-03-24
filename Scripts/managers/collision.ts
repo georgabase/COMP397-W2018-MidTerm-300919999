@@ -21,11 +21,11 @@ namespace managers {
                 managers.Game.scoreBoard.Score += 100;
                 object2.alpha = 0;
 
-                // // add a life power up
-                // if(managers.Game.scoreBoard.Score % 1000 == 0) {
-                //   managers.Game.scoreBoard.Lives += 1;
-                //   createjs.Sound.play("life");
-                // }
+                // add a life power up
+                if (managers.Game.scoreBoard.Score % 1000 == 0) {
+                  managers.Game.scoreBoard.Lives += 1;
+                  createjs.Sound.play("life");
+                }
 
                 if (managers.Game.HighScore <= managers.Game.scoreBoard.Score) {
                   managers.Game.scoreBoard.HighScore =
